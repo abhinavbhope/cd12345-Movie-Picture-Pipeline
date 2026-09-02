@@ -1,4 +1,4 @@
-name: Frontend CI
+name: Frontend Continuous Integration
 
 on:
   pull_request:
@@ -15,10 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 16
+          cache: 'npm'
+          cache-dependency-path: starter/frontend/package-lock.json
 
       - name: Install dependencies
         working-directory: starter/frontend
@@ -34,16 +36,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 16
+          cache: 'npm'
+          cache-dependency-path: starter/frontend/package-lock.json
 
       - name: Install dependencies
         working-directory: starter/frontend
         run: npm ci
 
-      - name: Run tests
+      - name: Run test
         working-directory: starter/frontend
         run: CI=true npm test
 
@@ -55,6 +59,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: starter/frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: starter/frontend
+        run: npm ci
 
       - name: Build Docker image
         working-directory: starter/frontend
