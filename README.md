@@ -1,4 +1,8 @@
 # Movie Picture Pipeline
+# Application URLs & Deployment Endpoints
+* **Frontend URL**: `http://a17fe81df33d048b7bab274343acc9b2-94321376.us-east-1.elb.amazonaws.com/`
+* **Backend API URL**: `http://a36962601b6714409a238123a9a58871-256561351.us-east-1.elb.amazonaws.com/api/v1/movies`
+* **Screenshots Directory**: `starter/screenshots/`
 
 You've been brought on as the DevOps resource for a development team that manages a web application that is a catalog of Movie Picture movies. They're in dire need of automating their development workflows in hopes of accelerating their release cycle. They'd like to use Github Actions to automate testing, building and deploying their applications to an existing Kubernetes cluster.
 
